@@ -7,19 +7,17 @@ public class Person {
     String nom;
     String email;
     String numTel;
-    String type;
     String login;
     String motDePasse;
     Date dateNaissance;
     char sexe;
 
 
-    public Person(String prenom, String nom, String email, String numTel, String type, String login, String motDePasse, Date dateNaissance, char sexe) {
+    public Person(String prenom, String nom, String email, String numTel, String login, String motDePasse, Date dateNaissance, char sexe) {
         this.prenom = prenom;
         this.nom = nom;
         this.email = email;
         this.numTel = numTel;
-        this.type = type;
         this.login = login;
         this.motDePasse = motDePasse;
         this.dateNaissance = dateNaissance;
@@ -56,14 +54,6 @@ public class Person {
 
     public void setNumTel(String numTel) {
         this.numTel = numTel;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getLogin() {

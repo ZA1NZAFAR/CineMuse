@@ -44,7 +44,7 @@ public class ConnectionDB {
             ps.setString(2, user.getNom());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getNumTel());
-            ps.setString(5, user.getType());
+            ps.setString(5, "client");
             ps.setString(6, user.getLogin());
             ps.setString(7, user.getMotDePasse());
             ps.setString(8, user.getDateNaissance().toString());
