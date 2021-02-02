@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Homepage - CineMuse</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<html>
+
+<head>
+    <title>Page de Connexion au CinéMuse</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="design.css"/>
+</head>
+
+<body>
+<form action="Authenfication" method='GET'>
+<div class="contact">
+    <h3>Connexion</h3>
+    <p>Bienvenue sur le site du CinéMuse</p>
+    <div class="partie">
+        <input type="text" required="" name="idLogin">
+        <label>Identifiant d'utilisateur</label>
+    </div>
+    <div class="partie">
+        <input type="password" required="" name="passwordLogin">
+        <label>Mot De Passe</label>
+    </div>
+    <input class="submit" type="submit" name="" value="Connexion">
+    <br><a href="CreationCompte.html">Creer un compte</a>
+</div>
+</form>
+
+</body>
+
 </html>

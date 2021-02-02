@@ -6,6 +6,7 @@ public class Film {
     String langue;
     int annee;
     int duree;
+    String addressPhoto;
 
 
     public Film(String nom, String genre, String langue, int annee, int duree) {
