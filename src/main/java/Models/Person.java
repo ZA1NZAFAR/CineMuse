@@ -9,11 +9,11 @@ public class Person {
     String numTel;
     String login;
     String motDePasse;
-    Date dateNaissance;
+    String dateNaissance;
     char sexe;
 
 
-    public Person(String prenom, String nom, String email, String numTel, String login, String motDePasse, Date dateNaissance, char sexe) {
+    public Person(String prenom, String nom, String email, String numTel, String login, String motDePasse, String dateNaissance, char sexe) {
         this.prenom = prenom;
         this.nom = nom;
         this.email = email;
@@ -72,11 +72,11 @@ public class Person {
         this.motDePasse = motDePasse;
     }
 
-    public Date getDateNaissance() {
+    public String getDateNaissance() {
         return dateNaissance;
     }
 
-    public void setDateNaissance(Date dateNaissance) {
+    public void setDateNaissance(String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 

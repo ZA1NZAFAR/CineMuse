@@ -7,7 +7,7 @@
 <body>
 <div class="container">
 
-    <form action="Authentification" method="POST">
+    <form action="/CineMuse-V1/Authentification" method="post">
         <H1>Création du compte</H1>
 
         <label><h3>Nom</h3></label>
@@ -17,8 +17,10 @@
         <input type="text" id="prenom" name="prenom" required>
 
         <h3>Sexe :</h3> <br>
-        <INPUT type="radio" name="sex" value="H" checked> Homme
-        <INPUT type="radio" name="sex" value="F"> Femme
+        <select name="sex">
+            <option value="M">Homme</option>
+            <option value="F">Femme</option>
+        </select>
 
         <label><h3>Identifiant</h3></label>
         <input type="text" id="login" name="username" required>
