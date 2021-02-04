@@ -1,18 +1,36 @@
 package Models;
 
+import java.io.StringWriter;
+
 public class Film {
+    int id;
+
     String nom;
     String genre;
     String langue;
-    int annee;
-    int duree;
     String addressPhoto;
 
+    int prix;
+    int annee;
+    int duree;
 
-    public Film(String nom, String genre, String langue, int annee, int duree) {
+    public Film(int id, String nom, String genre, String langue, String addressPhoto, int prix, int annee, int duree) {
+        this.id = id;
         this.nom = nom;
         this.genre = genre;
         this.langue = langue;
+        this.addressPhoto = addressPhoto;
+        this.prix = prix;
+        this.annee = annee;
+        this.duree = duree;
+    }
+
+    public Film(String nom, String genre, String langue, String addressPhoto, int prix, int annee, int duree) {
+        this.nom = nom;
+        this.genre = genre;
+        this.langue = langue;
+        this.addressPhoto = addressPhoto;
+        this.prix = prix;
         this.annee = annee;
         this.duree = duree;
     }
@@ -41,6 +59,22 @@ public class Film {
         this.langue = langue;
     }
 
+    public String getAddressPhoto() {
+        return addressPhoto;
+    }
+
+    public void setAddressPhoto(String addressPhoto) {
+        this.addressPhoto = addressPhoto;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
     public int getAnnee() {
         return annee;
     }
@@ -56,4 +90,26 @@ public class Film {
     public void setDuree(int duree) {
         this.duree = duree;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "nom='" + nom + '\'' +
+                ", genre='" + genre + '\'' +
+                ", langue='" + langue + '\'' +
+                ", addressPhoto='" + addressPhoto + '\'' +
+                ", prix=" + prix +
+                ", annee=" + annee +
+                ", duree=" + duree +
+                '}';
+    }
+
 }
