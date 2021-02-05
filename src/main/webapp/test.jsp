@@ -1,53 +1,11 @@
-CREATE TABLE `places` (
-`IdPlaces` int(11) NOT NULL,
-`p0` int(11) DEFAULT 0,
-`p1` int(11) DEFAULT 0,
-`p2` int(11) DEFAULT 0,
-`p3` int(11) DEFAULT 0,
-`p4` int(11) DEFAULT 0,
-`p5` int(11) DEFAULT 0,
-`p6` int(11) DEFAULT 0,
-`p7` int(11) DEFAULT 0,
-`p8` int(11) DEFAULT 0,
-`p9` int(11) DEFAULT 0,
-`p10` int(11) DEFAULT 0,
-`p11` int(11) DEFAULT 0,
-`p12` int(11) DEFAULT 0,
-`p13` int(11) DEFAULT 0,
-`p14` int(11) DEFAULT 0,
-`p15` int(11) DEFAULT 0,
-`p16` int(11) DEFAULT 0,
-`p17` int(11) DEFAULT 0,
-`p18` int(11) DEFAULT 0,
-`p19` int(11) DEFAULT 0,
-`p20` int(11) DEFAULT 0,
-`p21` int(11) DEFAULT 0,
-`p22` int(11) DEFAULT 0,
-`p23` int(11) DEFAULT 0,
-`p24` int(11) DEFAULT 0,
-`p25` int(11) DEFAULT 0,
-`p26` int(11) DEFAULT 0,
-`p27` int(11) DEFAULT 0,
-`p28` int(11) DEFAULT 0,
-`p29` int(11) DEFAULT 0,
-`p30` int(11) DEFAULT 0,
-`p31` int(11) DEFAULT 0,
-`p32` int(11) DEFAULT 0,
-`p33` int(11) DEFAULT 0,
-`p34` int(11) DEFAULT 0,
-`p35` int(11) DEFAULT 0,
-`p36` int(11) DEFAULT 0,
-`p37` int(11) DEFAULT 0,
-`p38` int(11) DEFAULT 0,
-`p39` int(11) DEFAULT 0,
-`p40` int(11) DEFAULT 0,
-`p41` int(11) DEFAULT 0,
-`p42` int(11) DEFAULT 0,
-`p43` int(11) DEFAULT 0,
-`p44` int(11) DEFAULT 0,
-`p45` int(11) DEFAULT 0,
-`p46` int(11) DEFAULT 0,
-`p47` int(11) DEFAULT 0,
-`p48` int(11) DEFAULT 0,
-`p49` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<%
+    out.println("<h1>" + session.getAttribute("tsst") + "</h1>");
+%>
+</body>
+</html>

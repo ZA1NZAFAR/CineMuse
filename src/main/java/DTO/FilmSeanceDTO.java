@@ -1,6 +1,7 @@
 package DTO;
 
 import Models.Film;
+import Models.Places;
 import Models.Seance;
 
 import java.io.StringWriter;
@@ -8,6 +9,7 @@ import java.io.StringWriter;
 public class FilmSeanceDTO {
     Seance seanceID;
     Film film;
+    Places places;
 
     public FilmSeanceDTO(Seance seanceID, Film film) {
         this.seanceID = seanceID;
@@ -28,6 +30,14 @@ public class FilmSeanceDTO {
 
     public void setFilm(Film film) {
         this.film = film;
+    }
+
+    public Places getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(Places places) {
+        this.places = places;
     }
 
     public String getHtml() {
