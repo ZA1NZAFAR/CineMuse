@@ -16,9 +16,9 @@
     <title>Title</title>
 </head>
 <body>
-
 <table>
     <%
+        request.getSession().setAttribute("CurrentUserId",session.getAttribute("CurrentUserId"));
         for (int i = 0; i < 3; i++) {
             out.println("<tr>");
             out.println("<td>" + DateTools.getDaysAfter(i) + "</td>");
@@ -40,6 +40,6 @@
     %>
 </table>
 
-
+<%out.println("<h1>"+session.getAttribute("CurrentUserId")+"</h1>");%>
 </body>
 </html>

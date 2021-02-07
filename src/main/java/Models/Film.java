@@ -1,7 +1,5 @@
 package Models;
 
-import java.io.StringWriter;
-
 public class Film {
     int id;
 
@@ -10,11 +8,11 @@ public class Film {
     String langue;
     String addressPhoto;
 
-    int prix;
+    double prix;
     int annee;
     int duree;
 
-    public Film(int id, String nom, String genre, String langue, String addressPhoto, int prix, int annee, int duree) {
+    public Film(int id, String nom, String genre, String langue, String addressPhoto, double prix, int annee, int duree) {
         this.id = id;
         this.nom = nom;
         this.genre = genre;
@@ -25,7 +23,7 @@ public class Film {
         this.duree = duree;
     }
 
-    public Film(String nom, String genre, String langue, String addressPhoto, int prix, int annee, int duree) {
+    public Film(String nom, String genre, String langue, String addressPhoto, double prix, int annee, int duree) {
         this.nom = nom;
         this.genre = genre;
         this.langue = langue;
@@ -67,11 +65,11 @@ public class Film {
         this.addressPhoto = addressPhoto;
     }
 
-    public int getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
@@ -112,4 +110,10 @@ public class Film {
                 '}';
     }
 
+    public String getSql() {
+        String sql = "INSERT INTO film(Nom, Prix, Genre, Annee, Duree, Langue, PhotoAdresse) " +
+                "VALUES " +
+                "(" + nom + "," + prix + "," + genre + "," + annee + "," + duree + "," + langue + "," + addressPhoto + ")";
+        return sql;
+    }
 }

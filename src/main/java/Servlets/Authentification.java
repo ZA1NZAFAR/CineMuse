@@ -1,5 +1,6 @@
 package Servlets;
 
+import DTO.PersonDTO;
 import Models.Person;
 import Tools.DbTools;
 import Tools.HtmlDisplayer;
@@ -33,19 +34,23 @@ public class Authentification extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            int respone = dbTools.checkExist((String) request.getParameter("idLogin"), (String) request.getParameter("passwordLogin"));
-            if (respone == 1) {
-                request.getSession().setAttribute("UserType", "Client");
-                new GetFilms().doPost(request, response);
-            } else if (respone == 2) {
-                request.getSession().setAttribute("UserType", "Manager");
-                new GetFilms().doPost(request, response);
-            } else
-                request.setAttribute("message", "Unknown error.");
-            HtmlDisplayer.processRequest(request, response);
-
+            PersonDTO respone = dbTools.checkExist(request.getParameter("idLogin"), request.getParameter("passwordLogin"));
+            if (respone.getIdPerson() > -1) {
+                request.getSession().setAttribute("CurrentUserId", respone.getIdPerson());
+                request.getSession().setAttribute("UserType", respone.getTypePerson());
+                if (respone.getTypePerson().equals("Client"))
+                    request.getRequestDispatcher("ChoiceClient.jsp").forward(request, response);
+                else if (respone.getTypePerson().equals("Manager"))
+                    request.getRequestDispatcher("ChoiceManager.jsp").forward(request, response);
+                else
+                    throw new Exception("Unknown user type.");
+            } else {
+                request.setAttribute("message", "Unable to login.");
+                HtmlDisplayer.processRequest(request, response);
+            }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            request.setAttribute("message",e.getMessage());
+           HtmlDisplayer.processRequest(request,response);
         }
     }
 }

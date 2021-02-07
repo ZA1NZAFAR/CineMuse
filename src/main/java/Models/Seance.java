@@ -4,21 +4,24 @@ public class Seance {
     int idSeance;
     double heure;
     String date;
-    int nbPlaceDispo;
-    int nbPlaceOccupe;
     int IdSalle;
     int IdFilm;
     int IdPlaces;
 
-    public Seance(int idSeance, double heure, String date, int nbPlaceDispo, int nbPlaceOccupe, int idSalle, int idFilm, int idPlaces) {
+    public Seance(int idSeance, double heure, String date, int idSalle, int idFilm, int idPlaces) {
         this.idSeance = idSeance;
         this.heure = heure;
         this.date = date;
-        this.nbPlaceDispo = nbPlaceDispo;
-        this.nbPlaceOccupe = nbPlaceOccupe;
         IdSalle = idSalle;
         IdFilm = idFilm;
         IdPlaces = idPlaces;
+    }
+
+    public Seance(int idFilm, String dateSeance, int idSalle, int heure) {
+        this.heure = heure;
+        this.date = dateSeance;
+        IdSalle = idSalle;
+        IdFilm = idFilm;
     }
 
     public int getIdSeance() {
@@ -45,21 +48,6 @@ public class Seance {
         this.date = date;
     }
 
-    public int getNbPlaceDispo() {
-        return nbPlaceDispo;
-    }
-
-    public void setNbPlaceDispo(int nbPlaceDispo) {
-        this.nbPlaceDispo = nbPlaceDispo;
-    }
-
-    public int getNbPlaceOccupe() {
-        return nbPlaceOccupe;
-    }
-
-    public void setNbPlaceOccupe(int nbPlaceOccupe) {
-        this.nbPlaceOccupe = nbPlaceOccupe;
-    }
 
     public int getIdSalle() {
         return IdSalle;

@@ -1,6 +1,7 @@
 package Tools;
 
 import DTO.FilmSeanceDTO;
+import DTO.PersonDTO;
 import Models.*;
 
 import java.sql.*;
@@ -9,31 +10,25 @@ import java.util.List;
 
 public class DbTools {
 
-    public int checkExist(String id, String pwd) throws SQLException {
+
+    public PersonDTO checkExist(String id, String pwd) throws SQLException {
         String query = "SELECT * FROM person";
         try (PreparedStatement ps = getConnection().prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 if (rs.getString("Login").equals(id) && rs.getString("MDP").equals(pwd)) {
-                    if (rs.getString("Type").equals("Client"))
-                        return 1;
-                    else if (rs.getString("Type").equals("Manager"))
-                        return 2;
-                    else
-                        return 3; //autre
-                }
-                if (rs.getString("Login").equals(id))
-                    return 9;
+                    return new PersonDTO(rs.getInt("IdPerson"), rs.getString("Type"));
+                } else if (rs.getString("Login").equals(id))
+                    return new PersonDTO(-1, "Password Error.");
             }
-
         } catch (SQLException e) {
             throw new SQLException(e.getMessage());
         }
-        return 0;
+        return new PersonDTO(-2, "ErrorConnection");
     }
 
     public void createAccount(Person user) throws SQLException {
-        if (checkExist(user.getLogin(), user.getMotDePasse()) == 9) {
+        if (checkExist(user.getLogin(), user.getMotDePasse()).getIdPerson() > -1) {
             throw new SQLException("Utilisateur existe deja.");
         }
         String query = " INSERT INTO person (Prenom, Nom, Email, NumTel, Type, Login, MDP, DateNaissance,Sexe)"
@@ -68,8 +63,6 @@ public class DbTools {
                 String idFilmPourLaSeance = rs.getString("IdFilm");
                 Seance seance = new Seance(rs.getInt("IdSeance"), rs.getDouble("Heure"),
                         rs.getString("Date"),
-                        rs.getInt("NbPlacesDispo"),
-                        rs.getInt("NbPlaceOccupe"),
                         rs.getInt("IdSalle"),
                         rs.getInt("IdFilm"),
                         rs.getInt("IdPlaces"));
@@ -80,7 +73,7 @@ public class DbTools {
                      ResultSet rs2 = ps2.executeQuery()) {
                     while (rs2.next()) {
                         res.add(new FilmSeanceDTO(seance, new Film(rs2.getInt("IdFilm"), rs2.getString("Nom"), rs2.getString("Genre"), rs2.getString("Langue"),
-                                rs2.getString("PhotoAdresse"), rs2.getInt("Prix"), rs2.getInt("Annee"),
+                                rs2.getString("PhotoAdresse"), rs2.getDouble("Prix"), rs2.getInt("Annee"),
                                 rs2.getInt("Duree"))));
                     }
                 } catch (SQLException e) {
@@ -96,7 +89,7 @@ public class DbTools {
 
     public Places getPlacesForSeance(int idSeance) throws SQLException {
         Places places = null;
-        String query = "SELECT * FROM Places WHERE idPlaces = (SELECT IdPlaces FROM Seance WHERE IdSeance = " + idSeance+")";
+        String query = "SELECT * FROM Places WHERE idPlaces = (SELECT IdPlaces FROM Seance WHERE IdSeance = " + idSeance + ")";
         try (PreparedStatement ps = getConnection().prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -104,12 +97,53 @@ public class DbTools {
                 for (int i = 0; i < 50; i++) {
                     tabTemp[i] = rs.getInt("p" + i);
                 }
-                places = new Places(rs.getInt("IdPlaces"),tabTemp);
+                places = new Places(rs.getInt("IdPlaces"), tabTemp);
             }
         } catch (SQLException e) {
             throw new SQLException(e.getMessage());
         }
         return places;
+    }
+
+
+    public List<Reservation> getReservationsForClient(int idClient) throws SQLException {
+        String query = "SELECT * FROM Reservation WHERE IdPerson = " + idClient;
+        ArrayList<Reservation> arrayList = new ArrayList<>();
+        try (PreparedStatement ps = getConnection().prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Reservation reservation = new Reservation(
+                        rs.getInt("IdReservation"),
+                        rs.getString("DATE"),
+                        rs.getInt("IdSeance"),
+                        rs.getInt("IdPerson"),
+                        rs.getInt("IdSalle"),
+                        rs.getInt("IdTarif"),
+                        rs.getDouble("Prix"),
+                        rs.getInt("IdFilm"),
+                        rs.getString("PlacesReserves"));
+                arrayList.add(reservation);
+            }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
+        }
+        return arrayList;
+    }
+
+    public List<Film> getAllFilms() throws SQLException {
+        String requeteGetFilmPourLaSeance = "SELECT * FROM film";
+        ArrayList<Film> res = new ArrayList<>();
+        try (PreparedStatement ps2 = getConnection().prepareStatement(requeteGetFilmPourLaSeance);
+             ResultSet rs2 = ps2.executeQuery()) {
+            while (rs2.next()) {
+                res.add(new Film(rs2.getInt("IdFilm"), rs2.getString("Nom"), rs2.getString("Genre"), rs2.getString("Langue"),
+                        rs2.getString("PhotoAdresse"), rs2.getDouble("Prix"), rs2.getInt("Annee"),
+                        rs2.getInt("Duree")));
+            }
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
+        }
+        return res;
     }
 
 
