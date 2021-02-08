@@ -13,9 +13,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Film Selection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
+<h1>CineMuse - Planned Films</h1>
 <table>
     <%
         request.getSession().setAttribute("CurrentUserId",session.getAttribute("CurrentUserId"));
@@ -39,7 +42,5 @@
         }
     %>
 </table>
-
-<%out.println("<h1>"+session.getAttribute("CurrentUserId")+"</h1>");%>
 </body>
 </html>

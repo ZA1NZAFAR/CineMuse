@@ -47,7 +47,6 @@ public class Places {
 
     public String getHtml() {
         StringWriter out = new StringWriter();
-        out.write("<form style=\"text-align: center\" action=\"/CineMuse-V1/ReservationServlet\" method=\"post\">");
         out.write("<table>");
         for (int i = 0; i < 5; i++) {
             out.write("<tr>");
@@ -59,22 +58,6 @@ public class Places {
             }
             out.write("</tr>");
         }
-
-
-        out.write("<tr>");
-        out.write("<td><select name=\"SelectedTarif\">\n" +
-                "<option value=\"1\">Tarif Plein</option>\n" +
-                "<option value=\"2\">Tarif Reduit</option>\n" +
-                "</select></td>");
-        out.write("</tr>");
-
-
-        out.write("<tr>");
-        out.write("<td> <input type=\"submit\" value=\"Reserver\"></td>");
-        out.write("</form>");
-        out.write("</tr>");
-
-
         out.write("</table>");
 
         return out.toString();

@@ -19,7 +19,7 @@ public class ReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int x = 0;
-        Places places = (Places) request.getSession().getAttribute("placesForCurrentSession1");
+        Places places = (Places) request.getSession().getAttribute("placesForCurrentSession");
         for (int i = 0; i < 50; i++) {
             places.getPlaces()[i] = (null == request.getParameter("idPlaceToReserve" + i)) ? 0 : 1;
             x += (null == request.getParameter("idPlaceToReserve" + i)) ? 0 : 1;

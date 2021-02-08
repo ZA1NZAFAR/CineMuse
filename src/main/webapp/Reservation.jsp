@@ -3,40 +3,46 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="Models.Places" %>
 <%@ page import="Models.Film" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="Tools.HtmlDisplayer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Seat Selection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
-<%
+<form style="text-align: center" action="/CineMuse-V1/ReservationServlet" method="post">
+    <%
+        request.getSession().setAttribute("CurrentFilmName", request.getParameter("CurrentFilmName"));
+        request.getSession().setAttribute("CurrentFilmPrice", request.getParameter("CurrentFilmPrice"));
+        request.getSession().setAttribute("CurrentSessionId", request.getParameter("CurrentSessionId"));
+        request.getSession().setAttribute("CurrentSalleId", request.getParameter("CurrentSalleId"));
+        request.getSession().setAttribute("CurrentSessionDate", request.getParameter("CurrentSessionDate"));
+        request.getSession().setAttribute("CurrentFilmId", request.getParameter("CurrentFilmId"));
+        out.print("<h1>" + request.getParameter("CurrentFilmName") + "</h1>");
+        out.print("<h1>" + request.getParameter("CurrentSessionDate") + "</h1>");
+        Places p = null;
+        try {
+            p = new DbTools().getPlacesForSeance(Integer.parseInt(request.getParameter("CurrentSessionId")));
+            session.setAttribute("placesForCurrentSession", p);
+            out.print(p.getHtml());
+        } catch (SQLException e) {
+            request.setAttribute("message", e.getMessage());
+            HtmlDisplayer.processRequest(request, response);
+        }
 
-    request.getSession().setAttribute("CurrentFilmName", request.getParameter("CurrentFilmName"));
-    request.getSession().setAttribute("CurrentFilmPrice", request.getParameter("CurrentFilmPrice"));
-    request.getSession().setAttribute("CurrentSessionId", request.getParameter("CurrentSessionId"));
-    request.getSession().setAttribute("CurrentSalleId", request.getParameter("CurrentSalleId"));
-    request.getSession().setAttribute("CurrentSessionDate", request.getParameter("CurrentSessionDate"));
-    request.getSession().setAttribute("CurrentFilmId", request.getParameter("CurrentFilmId"));
-    out.print("<h1>" + request.getParameter("CurrentFilmName") + "</h1>");
-    out.print("<h1>" + request.getParameter("CurrentFilmPrice") + "</h1>");
-    out.print("<h1>" + request.getParameter("CurrentSessionId") + "</h1>");
-    out.print("<h1>" + request.getParameter("CurrentSalleId") + "</h1>");
-    out.print("<h1>" + request.getParameter("CurrentFilmPrice") + "</h1>");
-    out.print("<h1>" + request.getParameter("CurrentSessionDate") + "</h1>");
+    %>
+    <br><br>
+    <select name="SelectedTarif">
+        <option value="1">Tarif Plein</option>
+        <option value="2">Tarif Reduit</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Reserver">
+</form>
 
-    out.println("<h1>" + request.getSession().getAttribute("CurrentUserId") + "</h1>");
-
-    out.println("<h1>" + request.getSession().getAttribute("CurrentFilmId") + "</h1>");
-
-
-    out.print("<h1>Zain</h1>");
-
-    Places p = new DbTools().getPlacesForSeance(Integer.parseInt(request.getParameter("CurrentSessionId")));
-    out.print("<h1>" + Arrays.toString(new
-            DbTools().getPlacesForSeance(Integer.parseInt(request.getParameter("CurrentSessionId"))).getPlaces()) + "</h1>");
-    session.setAttribute("placesForCurrentSession1", p);
-    out.print(new DbTools().getPlacesForSeance(Integer.parseInt(request.getParameter("CurrentSessionId"))).getHtml());
-%>
 
 </body>
 </html>

@@ -1,41 +1,80 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Ajouter un Film</title>
+    <title>Page de Connexion au CinéMuse</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<h1>CineMuse film à ajouter</h1>
+<h1>CineMuse - Adding Film</h1>
 <div class="entirePage">
     <form action="/CineMuse-V1/AddFilmServlet" method="POST" style="padding: 10px">
 
-        <label for="nameFilm">Nom film : </label>
-        <input type="text" placeholder="Entrez nom film" id="nameFilm" name="nomFilm" required="">
-        <br>
+        <table>
+            <tr>
+                <td>
+                    <label for="nameFilm">Nom : </label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Entrez nom film" id="nameFilm" name="nomFilm" required="">
+                </td>
+            </tr>
 
-        <label for="prix">Prix film : </label>
-        <input type="number" step="any" placeholder="Entrez nom film" id="prix" name="prixFilm" required="">
-        <br>
+            <tr>
+                <td>
+                    <label for="prix">Prix : </label>
+                </td>
+                <td>
+                    <input type="number" step="any" placeholder="Entrez nom film" id="prix" name="prixFilm" required="">
+                </td>
+            </tr>
 
-        <label for="genre">Genre film : </label>
-        <input type="text" placeholder="Entrez nom film" id="genre" name="genreFilm" required="">
-        <br>
+            <tr>
+                <td>
+                    <label for="genre">Genre : </label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Entrez nom film" id="genre" name="genreFilm" required="">
+                </td>
+            </tr>
 
-        <label for="annee">Annee film : </label>
-        <input type="number" placeholder="Entrez nom film" id="annee" name="anneeFilm" required="">
-        <br>
+            <tr>
+                <td>
+                    <label for="annee">Annee : </label>
+                </td>
+                <td>
+                    <input type="number" placeholder="Entrez nom film" id="annee" name="anneeFilm" required="">
+                </td>
+            </tr>
 
-        <label for="duree">Duree film : </label>
-        <input type="text" placeholder="Entrez nom film" id="duree" name="dureeFilm" required="">
-        <br>
+            <tr>
+                <td>
+                    <label for="duree">Duree : </label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Entrez nom film" id="duree" name="dureeFilm" required="">
+                </td>
+            </tr>
 
-        <label for="langue">Langue film : </label>
-        <input type="text" placeholder="Entrez nom film" id="langue" name="langueFilm" required="">
-        <br>
 
-        <label for="photoAdresse">Photo Adresse film : </label>
-        <input type="text" placeholder="Entrez nom film" id="photoAdresse" name="photoAdresseFilm" required="">
-        <br>
+            <tr>
+                <td>
+                    <label for="langue">Langue : </label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Entrez nom film" id="langue" name="langueFilm" required="">
+                </td>
+            </tr>
 
+            <tr>
+                <td>
+                    <label for="photoAdresse">Photo Adresse : </label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Entrez nom film" id="photoAdresse" name="photoAdresseFilm"
+                           required="">
+                </td>
+            </tr>
+
+        </table>
         <input type="submit" value="ajouter le film" class="u-form-control-hidden">
     </form>
 
