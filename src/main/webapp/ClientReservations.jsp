@@ -11,6 +11,7 @@
     <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <h1>Mes Reservation</h1>
 <%
     List<Reservation> list = null;

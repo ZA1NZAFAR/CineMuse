@@ -11,6 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <h1>CineMuse - Planning Session</h1>
 <form action="/CineMuse-V1/AddSeanceServlet" method="post">
 

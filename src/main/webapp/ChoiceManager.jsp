@@ -7,6 +7,7 @@
     <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <h1 style="text-align: center">Manager Control Panel</h1>
 <div class="login">
     <form action="AjouterFilm.jsp" method="post">

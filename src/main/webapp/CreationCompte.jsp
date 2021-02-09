@@ -5,8 +5,8 @@
     <title>Créer mon compte</title>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <div class="container">
-
     <form action="/CineMuse-V1/AccountCreationServlet" method="post">
         <H1>Création du compte</H1>
 

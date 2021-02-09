@@ -6,13 +6,10 @@
     <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <form action="/CineMuse-V1/AuthentificationServlet" method='post'>
     <div class="login">
-        <h1>CineMuse</h1>
         <h3>Connexion</h3>
-        <br>
-        <p>Bienvenue sur le site du CinéMuse</p>
-        <br>
         <label>Identifiant d'utilisateur</label><br>
         <input type="text" required="" name="idLogin"><br>
         <label>Mot De Passe</label><br>

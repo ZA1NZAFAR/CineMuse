@@ -3,17 +3,20 @@ body {
 }
 .login {
     text-align: center;
-    padding: 250px 0;
 }
 .dateHomePage{
     background-color: #333333;
     font-size: 50px;
 }
+.tableHeading{
+    height: 100px;
+    background-color: #333333;
+}
 
 
 .TheMessage {
     text-align: center;
-    font-size: 75px;
+    font-size: 50px;
 }
 
 input[type=submit] {

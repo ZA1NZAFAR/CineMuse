@@ -10,6 +10,7 @@
     <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <form style="text-align: center" action="/CineMuse-V1/ReservationServlet" method="post">
     <%
         request.getSession().setAttribute("CurrentFilmName", request.getParameter("CurrentFilmName"));

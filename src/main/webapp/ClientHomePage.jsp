@@ -18,8 +18,12 @@
     <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
-<h1>CineMuse - Planned Films</h1>
+<jsp:include page="Header.jsp" />
 <table>
+    <tr>
+        <th class="tableHeading">Date</th>
+        <th class="tableHeading">Film1</th>
+    </tr>
     <%
         request.getSession().setAttribute("CurrentUserId",session.getAttribute("CurrentUserId"));
         for (int i = 0; i < howManyDaysToLoad; i++) {
@@ -37,7 +41,6 @@
                 out.print(f.getForm());
                 out.print("</td>");
             }
-
             out.println("<tr>");
         }
     %>
