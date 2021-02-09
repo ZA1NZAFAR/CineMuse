@@ -1,34 +1,45 @@
-.login{
+body {
+    font-family: 'Aqua', sans-serif;
+}
+.login {
     text-align: center;
     padding: 250px 0;
 }
+
 input[type=text] {
-    padding:5px;
-    border:2px solid #ccc;
+    padding: 5px;
+    border: 2px solid #ccc;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
 
 input[type=text]:focus {
-    border-color:#333;
+    border-color: #333;
+}
+
+.TheMessage {
+    text-align: center;
+    font-size: 75px;
 }
 
 input[type=submit] {
-    padding:5px 15px;
-    background:#ccc;
-    border:0 none;
-    cursor:pointer;
+    padding: 5px 15px;
+    background: #ccc;
+    border: 0 none;
+    cursor: pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
+
 table {
     width: 100%;
-    table-layout: fixed ;
+    table-layout: fixed;
     border-collapse: collapse;
 }
+
 td {
     border: 5px black;
-    width: 25% ;
+    width: 25%;
     height: 100px;
     text-align: center;
     padding: 20px;

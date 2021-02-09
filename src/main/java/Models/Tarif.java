@@ -13,10 +13,6 @@ public class Tarif {
         return prix;
     }
 
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-
     public String getType() {
         return type;
     }

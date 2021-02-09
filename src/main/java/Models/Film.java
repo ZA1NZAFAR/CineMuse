@@ -36,65 +36,26 @@ public class Film {
     public String getNom() {
         return nom;
     }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public String getGenre() {
         return genre;
     }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public String getLangue() {
         return langue;
     }
-
-    public void setLangue(String langue) {
-        this.langue = langue;
-    }
-
     public String getAddressPhoto() {
         return addressPhoto;
     }
-
-    public void setAddressPhoto(String addressPhoto) {
-        this.addressPhoto = addressPhoto;
-    }
-
     public double getPrix() {
         return prix;
     }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-
     public int getAnnee() {
         return annee;
     }
-
-    public void setAnnee(int annee) {
-        this.annee = annee;
-    }
-
     public int getDuree() {
         return duree;
     }
-
-    public void setDuree(int duree) {
-        this.duree = duree;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override
@@ -108,12 +69,5 @@ public class Film {
                 ", annee=" + annee +
                 ", duree=" + duree +
                 '}';
-    }
-
-    public String getSql() {
-        String sql = "INSERT INTO film(Nom, Prix, Genre, Annee, Duree, Langue, PhotoAdresse) " +
-                "VALUES " +
-                "(" + nom + "," + prix + "," + genre + "," + annee + "," + duree + "," + langue + "," + addressPhoto + ")";
-        return sql;
     }
 }

@@ -13,16 +13,7 @@ public class Salle {
     public int getNbSalle() {
         return nbSalle;
     }
-
-    public void setNbSalle(int nbSalle) {
-        this.nbSalle = nbSalle;
-    }
-
     public int getNbPlace() {
         return nbPlace;
-    }
-
-    public void setNbPlace(int nbPlace) {
-        this.nbPlace = nbPlace;
     }
 }

@@ -27,49 +27,17 @@ public class Seance {
     public int getIdSeance() {
         return idSeance;
     }
-
-    public void setIdSeance(int idSeance) {
-        this.idSeance = idSeance;
-    }
-
     public double getHeure() {
         return heure;
     }
-
-    public void setHeure(double heure) {
-        this.heure = heure;
-    }
-
     public String getDate() {
         return date;
     }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-
     public int getIdSalle() {
         return IdSalle;
     }
-
-    public void setIdSalle(int idSalle) {
-        IdSalle = idSalle;
-    }
-
     public int getIdFilm() {
         return IdFilm;
     }
 
-    public void setIdFilm(int idFilm) {
-        IdFilm = idFilm;
-    }
-
-    public int getIdPlaces() {
-        return IdPlaces;
-    }
-
-    public void setIdPlaces(int idPlaces) {
-        IdPlaces = idPlaces;
-    }
 }

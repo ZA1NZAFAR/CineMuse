@@ -25,15 +25,6 @@ public class ReservationServlet extends HttpServlet {
             x += (null == request.getParameter("idPlaceToReserve" + i)) ? 0 : 1;
         }
         try {
-//            String s = (String) request.getSession().getAttribute("CurrentSessionDate");
-//            String s1 = (String) request.getSession().getAttribute("CurrentSessionId");
-//            String s3 = (String) request.getSession().getAttribute("CurrentSalleId");
-//            String s4 =  request.getParameter("SelectedTarif");
-//            String s5 = (String) request.getSession().getAttribute("CurrentFilmPrice");
-//            String s6 = (String) request.getSession().getAttribute("CurrentSessionId");
-//            String s7 = places.toString();
-//            int ss = Integer.parseInt(request.getParameter("SelectedTarif"));
-
             new DbToolsInsert().insertPlaces(places);
             new DbToolsInsert().insertReservation(new Reservation(
                     (String) request.getSession().getAttribute("CurrentSessionDate"),

@@ -15,16 +15,8 @@ public class Places {
         return IdPlace;
     }
 
-    public void setIdPlace(int idPlace) {
-        IdPlace = idPlace;
-    }
-
     public int[] getPlaces() {
         return places;
-    }
-
-    public void setPlaces(int[] places) {
-        this.places = places;
     }
 
     public String getSql() {

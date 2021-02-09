@@ -18,9 +18,9 @@ public class HtmlDisplayer {
                     "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
                     "    <link href=\"design.css\" rel=\"stylesheet\"/>\n" +
                     "</head>");
-            out.println("<body>");
-            out.println("<h1>" + (String) request.getAttribute("message") + "</h1>");
-            out.println("<br><a href=\"index.html\">Homepage</a>");
+            out.println("<body class=\"TheMessage\">");
+            out.println("<h1>" + request.getAttribute("message") + "</h1>");
+            out.println("<br><a href=\"index.jsp\">Homepage</a>");
             out.println("</body>");
             out.println("</html>");
         }

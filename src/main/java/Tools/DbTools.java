@@ -49,7 +49,7 @@ public class DbTools {
         }
     }
 
-    public List<FilmSeanceDTO> getFilms(String date, Filters filters) throws SQLException {
+    public List<FilmSeanceDTO> getFilms(String date) throws SQLException {
         ArrayList<FilmSeanceDTO> res = new ArrayList<>();
         String queryGetSeances;
         if (null == date)
@@ -66,7 +66,6 @@ public class DbTools {
                         rs.getInt("IdSalle"),
                         rs.getInt("IdFilm"),
                         rs.getInt("IdPlaces"));
-
 
                 String requeteGetFilmPourLaSeance = "SELECT * FROM film WHERE IdFilm = " + idFilmPourLaSeance;
                 try (PreparedStatement ps2 = getConnection().prepareStatement(requeteGetFilmPourLaSeance);

@@ -28,8 +28,4 @@ public class AddSeanceServlet extends HttpServlet {
         request.setAttribute("message", "Session inserted successfully.");
         HtmlDisplayer.processRequest(request, response);
     }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

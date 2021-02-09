@@ -21,8 +21,10 @@
         request.getSession().setAttribute("CurrentSalleId", request.getParameter("CurrentSalleId"));
         request.getSession().setAttribute("CurrentSessionDate", request.getParameter("CurrentSessionDate"));
         request.getSession().setAttribute("CurrentFilmId", request.getParameter("CurrentFilmId"));
+        out.print("<img src=\""+request.getParameter("CurrentFilmPhoto")+"\" width=\"200\" height=\"300\">");
         out.print("<h1>" + request.getParameter("CurrentFilmName") + "</h1>");
         out.print("<h1>" + request.getParameter("CurrentSessionDate") + "</h1>");
+        out.print("<h1>" + request.getParameter("CurrentSeanceHoraire") + "</h1>");
         Places p = null;
         try {
             p = new DbTools().getPlacesForSeance(Integer.parseInt(request.getParameter("CurrentSessionId")));
@@ -34,6 +36,7 @@
         }
 
     %>
+
     <br><br>
     <select name="SelectedTarif">
         <option value="1">Tarif Plein</option>

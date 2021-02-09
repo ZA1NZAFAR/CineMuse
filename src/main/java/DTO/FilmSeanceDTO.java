@@ -1,26 +1,17 @@
 package DTO;
 
 import Models.Film;
-import Models.Places;
 import Models.Seance;
 
 import java.io.StringWriter;
 
 public class FilmSeanceDTO {
-    Seance seanceID;
+    Seance seance;
     Film film;
 
     public FilmSeanceDTO(Seance seanceID, Film film) {
-        this.seanceID = seanceID;
+        this.seance = seanceID;
         this.film = film;
-    }
-
-    public Seance getSeanceID() {
-        return seanceID;
-    }
-
-    public void setSeanceID(Seance seanceID) {
-        this.seanceID = seanceID;
     }
 
     public Film getFilm() {
@@ -35,7 +26,7 @@ public class FilmSeanceDTO {
         StringWriter stringWriter = new StringWriter();
         stringWriter.write("<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"" + film.getAddressPhoto() + "\" alt=\"\" width=\"300\" height=\"200\" />");
         stringWriter.write("<h1 style=\"text-align: center;\">" + film.getNom() + "(" + film.getAnnee() + ")" + "</h1>");
-        stringWriter.write("<p style=\"text-align: center;\">Horaires : " + seanceID.getHeure() + "&nbsp;</p>");
+        stringWriter.write("<p style=\"text-align: center;\">Horaires : " + seance.getHeure() + "&nbsp;</p>");
         stringWriter.write("<p style=\"text-align: center;\">Genre : " + film.getGenre() + "&nbsp;</p>");
         stringWriter.write("<p style=\"text-align: center;\">Duration : " + film.getDuree() + " minutes</p>");
         stringWriter.write("<p style=\"text-align: center;\">Price : $" + film.getPrix() + "</p>");
@@ -57,9 +48,11 @@ public class FilmSeanceDTO {
         stringWriter.write("<input type=\"hidden\" value=\"" + film.getId() + "\" name=\"CurrentFilmId\">\n");
         stringWriter.write("<input type=\"hidden\" value=\"" + film.getNom() + "\" name=\"CurrentFilmName\">\n");
         stringWriter.write("<input type=\"hidden\" value=\"" + film.getPrix() + "\" name=\"CurrentFilmPrice\">\n");
-        stringWriter.write("<input type=\"hidden\" value=\"" + seanceID.getIdSeance() + "\" name=\"CurrentSessionId\">\n");
-        stringWriter.write("<input type=\"hidden\" value=\"" + seanceID.getIdSalle() + "\" name=\"CurrentSalleId\">\n");
-        stringWriter.write("<input type=\"hidden\" value=\"" + seanceID.getDate() + "\" name=\"CurrentSessionDate\">\n");
+        stringWriter.write("<input type=\"hidden\" value=\"" + film.getAddressPhoto() + "\" name=\"CurrentFilmPhoto\">\n");
+        stringWriter.write("<input type=\"hidden\" value=\"" + seance.getIdSeance() + "\" name=\"CurrentSessionId\">\n");
+        stringWriter.write("<input type=\"hidden\" value=\"" + seance.getIdSalle() + "\" name=\"CurrentSalleId\">\n");
+        stringWriter.write("<input type=\"hidden\" value=\"" + seance.getDate() + "\" name=\"CurrentSessionDate\">\n");
+        stringWriter.write("<input type=\"hidden\" value=\"" + (int) seance.getHeure() + "h" + "\" name=\"CurrentSeanceHoraire\">\n");
         return stringWriter.toString();
     }
 }

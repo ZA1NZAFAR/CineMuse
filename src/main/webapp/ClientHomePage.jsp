@@ -27,7 +27,7 @@
             out.println("<td>" + DateTools.getDaysAfter(i) + "</td>");
             ArrayList<FilmSeanceDTO> listToday = null;
             try {
-                listToday = (ArrayList<FilmSeanceDTO>) new DbTools().getFilms(DateTools.getDaysAfter(i), null);
+                listToday = (ArrayList<FilmSeanceDTO>) new DbTools().getFilms(DateTools.getDaysAfter(i));
             } catch (SQLException e) {
                 request.setAttribute("message", e.getMessage());
                 HtmlDisplayer.processRequest(request, response);

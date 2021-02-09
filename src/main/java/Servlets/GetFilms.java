@@ -16,7 +16,7 @@ public class GetFilms extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             int s2 = (int) request.getSession().getAttribute("CurrentUserId");
-            request.getSession().setAttribute("listFilmToday", new DbTools().getFilms(null, null));
+            request.getSession().setAttribute("listFilmToday", new DbTools().getFilms(null));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -27,9 +27,7 @@ public class GetFilms extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String s2 = (String) request.getSession().getAttribute("CurrentUserId");
-            String s21 = (String) request.getAttribute("CurrentUserId");
-            request.getSession().setAttribute("listFilmToday", new DbTools().getFilms(null, null));
+            request.getSession().setAttribute("listFilmToday", new DbTools().getFilms(null));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

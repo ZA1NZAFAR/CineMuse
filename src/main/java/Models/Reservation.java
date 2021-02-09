@@ -43,61 +43,8 @@ public class Reservation {
         return sql;
     }
 
-
-    public int getIdReservation() {
-        return idReservation;
-    }
-
-    public void setIdReservation(int idReservation) {
-        this.idReservation = idReservation;
-    }
-
-    public int getIdSeance() {
-        return idSeance;
-    }
-
-    public void setIdSeance(int idSeance) {
-        this.idSeance = idSeance;
-    }
-
-    public int getIdPerson() {
-        return idPerson;
-    }
-
-    public void setIdPerson(int idPerson) {
-        this.idPerson = idPerson;
-    }
-
     public int getIdSalle() {
         return idSalle;
-    }
-
-    public void setIdSalle(int idSalle) {
-        this.idSalle = idSalle;
-    }
-
-    public int getIdTarif() {
-        return idTarif;
-    }
-
-    public void setIdTarif(int idTarif) {
-        this.idTarif = idTarif;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public double getPrixTotal() {
-        return prixTotal;
-    }
-
-    public void setPrixTotal(double prixTotal) {
-        this.prixTotal = prixTotal;
     }
 
     @Override
