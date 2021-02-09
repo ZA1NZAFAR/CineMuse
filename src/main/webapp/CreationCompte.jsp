@@ -7,7 +7,7 @@
 <body>
 <div class="container">
 
-    <form action="/CineMuse-V1/Authentification" method="post">
+    <form action="/CineMuse-V1/AccountCreationServlet" method="post">
         <H1>Création du compte</H1>
 
         <label><h3>Nom</h3></label>

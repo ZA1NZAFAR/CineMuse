@@ -38,7 +38,7 @@ public class DbTools {
             ps.setString(2, user.getNom());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getNumTel());
-            ps.setString(5, "client");
+            ps.setString(5, "Client");
             ps.setString(6, user.getLogin());
             ps.setString(7, user.getMotDePasse());
             ps.setString(8, user.getDateNaissance());
@@ -145,6 +145,28 @@ public class DbTools {
         return res;
     }
 
+    public String getFilmById(int id) throws SQLException {
+        String query = "select Nom from Film WHERE IdFilm = " + id + " order by IdFilm desc limit 1";
+        try (PreparedStatement ps = getConnection().prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                return rs.getString("Nom");
+            }
+        }
+        throw new SQLException("No Film found for id " + id);
+
+    }
+
+    public Double getTarifCoefById(int id) throws SQLException {
+        String query = "select Coef from Tarif WHERE IdTarif = " + id;
+        try (PreparedStatement ps = getConnection().prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                return rs.getDouble("Coef");
+            }
+        }
+        throw new SQLException("No Tarif found for id " + id);
+    }
 
     public Connection getConnection() throws SQLException {
         try {

@@ -7,7 +7,7 @@
 <body>
 <div class="login">
     <h1>CineMuse</h1>
-    <form action="/CineMuse-V1/GetFilms" method='post'>
+    <form action="ClientHomePage.jsp" method='post'>
         <br> <br>
         <input class="submit" type="submit" name="" value="Reserver">
     </form>

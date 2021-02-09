@@ -2,6 +2,7 @@ package Servlets;
 
 import Models.Places;
 import Models.Reservation;
+import Tools.DbTools;
 import Tools.DbToolsInsert;
 import Tools.HtmlDisplayer;
 
@@ -32,7 +33,7 @@ public class ReservationServlet extends HttpServlet {
                     (int) request.getSession().getAttribute("CurrentUserId"),
                     Integer.parseInt((String) request.getSession().getAttribute("CurrentSalleId")),
                     Integer.parseInt(request.getParameter("SelectedTarif")),
-                    Double.parseDouble((String) request.getSession().getAttribute("CurrentFilmPrice"))*x,
+                    Double.parseDouble((String) request.getSession().getAttribute("CurrentFilmPrice")) * x * new DbTools().getTarifCoefById(Integer.parseInt(request.getParameter("SelectedTarif"))),
                     Integer.parseInt((String) request.getSession().getAttribute("CurrentFilmId")),
                     places.toString()));
             RequestDispatcher requetsDispatcherObj = request.getRequestDispatcher("/ClientReservations.jsp");

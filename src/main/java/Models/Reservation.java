@@ -1,5 +1,7 @@
 package Models;
 
+import Tools.DbTools;
+
 public class Reservation {
     int idReservation;
     String date;
@@ -35,6 +37,38 @@ public class Reservation {
         this.placesToReserve = placesToReserve;
     }
 
+    public int getIdReservation() {
+        return idReservation;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public int getIdSeance() {
+        return idSeance;
+    }
+
+    public int getIdPerson() {
+        return idPerson;
+    }
+
+    public int getIdTarif() {
+        return idTarif;
+    }
+
+    public int getIdFilm() {
+        return idFilm;
+    }
+
+    public double getPrixTotal() {
+        return prixTotal;
+    }
+
+    public String getPlacesToReserve() {
+        return placesToReserve;
+    }
+
     public String getSql() {
         String sql = "INSERT INTO `reservation`\n" +
                 "(`DATE`, `IdSeance`, `IdFilm`, `IdPerson`, `IdSalle`, `Prix`, `IdTarif`, `PlacesReserves`) \n" +
@@ -60,5 +94,17 @@ public class Reservation {
                 ", prixTotal=" + prixTotal +
                 ", placesToReserve='" + placesToReserve + '\'' +
                 '}';
+    }
+
+    public String getHtmlCell() throws Exception {
+        String s = "    <tr>\n" +
+                "        <td>" + this.idReservation + " </td>\n" +
+                "        <td>" + this.date + " </td>\n" +
+                "        <td>" + new DbTools().getFilmById(idFilm) + " </td>\n" +
+                "        <td> Salle " + idSalle + " </td>\n" +
+                "        <td>" + this.placesToReserve + " </td>\n" +
+                "        <td>" + this.prixTotal + " </td>\n" +
+                "    </tr>";
+        return s;
     }
 }

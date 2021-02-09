@@ -1,8 +1,5 @@
-<%@ page import="java.util.Date" %>
 <%@ page import="Tools.DbTools" %>
-<%@ page import="java.util.Arrays" %>
 <%@ page import="Models.Places" %>
-<%@ page import="Models.Film" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="Tools.HtmlDisplayer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -39,8 +36,9 @@
 
     <br><br>
     <select name="SelectedTarif">
-        <option value="1">Tarif Plein</option>
-        <option value="2">Tarif Reduit</option>
+        <option value="1">Tarif Plein  (100%)</option>
+        <option value="2">Tarif Reduit (75% )</option>
+        <option value="2">Tarif Enfant (50% )</option>
     </select>
     <br><br>
     <input type="submit" value="Reserver">

@@ -5,17 +5,11 @@ body {
     text-align: center;
     padding: 250px 0;
 }
-
-input[type=text] {
-    padding: 5px;
-    border: 2px solid #ccc;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+.dateHomePage{
+    background-color: #333333;
+    font-size: 50px;
 }
 
-input[type=text]:focus {
-    border-color: #333;
-}
 
 .TheMessage {
     text-align: center;
@@ -27,8 +21,8 @@ input[type=submit] {
     background: #ccc;
     border: 0 none;
     cursor: pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
 }
 
 table {

@@ -14,7 +14,6 @@ import java.io.IOException;
 @WebServlet(name = "AddFilmServlet", urlPatterns = "/AddFilmServlet")
 public class AddFilmServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         try {
             Film film = new Film(
                     request.getParameter("nomFilm"),

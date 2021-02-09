@@ -6,7 +6,7 @@
     <link href="design.css" rel="stylesheet"/>
 </head>
 <body>
-<form action="/CineMuse-V1/Authentification" method='get'>
+<form action="/CineMuse-V1/AuthentificationServlet" method='post'>
     <div class="login">
         <h1>CineMuse</h1>
         <h3>Connexion</h3>

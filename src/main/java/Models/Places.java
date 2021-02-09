@@ -46,6 +46,8 @@ public class Places {
                 out.write("<td bgcolor = \"" + (places[((10 * i) + j)] == 0 ? "Green" : "Red") + "\">");
                 if (places[((10 * i) + j)] == 0)
                     out.write("<input type=\"checkbox\" value=\"" + ((10 * i) + j) + "\" name=\"idPlaceToReserve" + ((10 * i) + j) + "\">\n");
+                else if (places[((10 * i) + j)] == 1)
+                    out.write("<h3>Reserved</h3>");
                 out.write("</td>");
             }
             out.write("</tr>");
