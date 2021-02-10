@@ -69,7 +69,18 @@ public class DbToolsInsert {
             ps.setInt(3, seance.getIdSalle());
             ps.setInt(4, seance.getIdFilm());
             ps.setInt(5, insertedPlace);
-            ps.execute();
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            deletePlace(insertedPlace);
+            throw new SQLException("Seance deja planifiee");
+        }
+    }
+
+    private void deletePlace(int i) {
+        String query = "DELETE FROM Places Where IdPlaces = " + i;
+        try (PreparedStatement ps = getConnection().prepareStatement(query)) {
+            ps.executeUpdate();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

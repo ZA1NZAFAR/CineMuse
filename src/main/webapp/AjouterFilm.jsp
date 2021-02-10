@@ -4,7 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<jsp:include page="Header.jsp" />
+<jsp:include page="Header.jsp"/>
+<jsp:include page="CheckUser.jsp" />
+
 <h1>CineMuse - Adding Film</h1>
 <div class="entirePage">
     <form action="/CineMuse-V1/AddFilmServlet" method="POST" style="padding: 10px">

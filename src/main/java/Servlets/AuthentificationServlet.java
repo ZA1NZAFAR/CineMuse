@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "AuthentificationServlet" , urlPatterns = "/AuthentificationServlet")
+@WebServlet(name = "AuthentificationServlet", urlPatterns = "/AuthentificationServlet")
 public class AuthentificationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -21,17 +21,19 @@ public class AuthentificationServlet extends HttpServlet {
                 request.getSession().setAttribute("UserType", respone.getTypePerson());
                 if (respone.getTypePerson().equals("Client"))
                     request.getRequestDispatcher("ChoiceClient.jsp").forward(request, response);
-                else if (respone.getTypePerson().equals("Manager"))
+                else if (respone.getTypePerson().equals("Manager")) {
+                    request.getSession().setAttribute("CurrentUserId", respone.getIdPerson());
+                    request.getSession().setAttribute("UserType", respone.getTypePerson());
                     request.getRequestDispatcher("ChoiceManager.jsp").forward(request, response);
-                else
+                } else
                     throw new Exception("Unknown user type.");
             } else {
                 request.setAttribute("message", "Unable to login.");
             }
         } catch (Exception e) {
-            request.setAttribute("message",e.getMessage());
+            request.setAttribute("message", e.getMessage());
         }
-        HtmlDisplayer.processRequest(request,response);
+        HtmlDisplayer.processRequest(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

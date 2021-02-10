@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "AddSeanceServlet", urlPatterns = "/AddSeanceServlet")
 public class AddSeanceServlet extends HttpServlet {
@@ -21,6 +22,9 @@ public class AddSeanceServlet extends HttpServlet {
                 Integer.parseInt(request.getParameter("heure")));
         try {
             new DbToolsInsert().insertSeance(seance);
+        } catch (SQLException e) {
+            request.setAttribute("message", e.getMessage());
+            HtmlDisplayer.processRequest(request, response);
         } catch (Exception e) {
             request.setAttribute("message", e.getMessage());
             HtmlDisplayer.processRequest(request, response);

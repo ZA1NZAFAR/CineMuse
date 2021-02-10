@@ -12,6 +12,7 @@
 </head>
 <body>
 <jsp:include page="Header.jsp" />
+<jsp:include page="CheckUser.jsp" />
 <h1>Mes Reservation</h1>
 <%
     List<Reservation> list = null;

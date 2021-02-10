@@ -6,6 +6,8 @@
 </head>
 <body>
 <jsp:include page="Header.jsp" />
+<jsp:include page="CheckUser.jsp" />
+
 <div class="login">
     <form action="ClientHomePage.jsp" method='post'>
         <br> <br>

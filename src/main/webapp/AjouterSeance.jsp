@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Tools.DbTools" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="java.net.HttpURLConnection" %>
 <%@ page import="Tools.HtmlDisplayer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -12,9 +11,9 @@
 </head>
 <body>
 <jsp:include page="Header.jsp" />
+<jsp:include page="CheckUser.jsp" />
 <h1>CineMuse - Planning Session</h1>
 <form action="/CineMuse-V1/AddSeanceServlet" method="post">
-
     <table>
         <tr>
             <td>
@@ -54,8 +53,8 @@
             </td>
             <td>
                 <select id="heure" name="heure">
-                    <option value="18">18h</option>
-                    <option value="20">20h</option>
+                    <option value="16">16h</option>
+                    <option value="19">19h</option>
                     <option value="22">22h</option>
                 </select></td>
         </tr>

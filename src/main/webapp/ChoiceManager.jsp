@@ -8,6 +8,7 @@
 </head>
 <body>
 <jsp:include page="Header.jsp" />
+<jsp:include page="CheckUser.jsp" />
 <h1 style="text-align: center">Manager Control Panel</h1>
 <div class="login">
     <form action="AjouterFilm.jsp" method="post">
@@ -16,6 +17,14 @@
     <br>
     <form action="AjouterSeance.jsp" method="post">
         <input type="submit" value="Planifier une seance">
+    </form>
+    <br>
+    <form action="ClientHomePage.jsp" method="post">
+        <input type="submit" value="Voir ou Reserver">
+    </form>
+    <br>
+    <form action="ClientReservations.jsp" method="post">
+        <input type="submit" value="Mes Reservation">
     </form>
 </div>
 </body>

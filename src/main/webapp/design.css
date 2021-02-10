@@ -7,10 +7,12 @@ body {
 .dateHomePage{
     background-color: #333333;
     font-size: 50px;
+    color: white
 }
 .tableHeading{
     height: 100px;
     background-color: #333333;
+    color: white;
 }
 
 
@@ -34,14 +36,12 @@ table {
     border-collapse: collapse;
 }
 
-td {
-    border: 5px black;
-    width: 25%;
-    height: 100px;
-    text-align: center;
-    padding: 20px;
+table, td, th {
+    border: 1px solid black;
 }
 
-tr {
-    border-bottom: 1pt solid black;
+tr{
+    height: 100px;
+    text-align:center
 }
+

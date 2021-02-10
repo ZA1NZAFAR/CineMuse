@@ -1,9 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="Models.Film" %>
-<%@ page import="java.awt.image.DataBuffer" %>
 <%@ page import="Tools.DbTools" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="Tools.HtmlDisplayer" %>
 <%@ page import="Tools.DateTools" %>
@@ -17,18 +13,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="design.css" rel="stylesheet"/>
 </head>
-<body>
 <jsp:include page="Header.jsp" />
+<body>
+<jsp:include page="CheckUser.jsp" />
+<h1>CineMuse - Planned Films</h1>
 <table>
     <tr>
         <th class="tableHeading">Date</th>
-        <th class="tableHeading">Film1</th>
+        <th class="tableHeading">Films</th>
     </tr>
     <%
         request.getSession().setAttribute("CurrentUserId",session.getAttribute("CurrentUserId"));
         for (int i = 0; i < howManyDaysToLoad; i++) {
             out.println("<tr>");
-            out.println("<td class=\"dateHomePage\">" + DateTools.getDaysAfter(i) + "</td>");
+            out.println("<th class=\"dateHomePage\">" + DateTools.getDaysAfter(i) + "</th>");
             ArrayList<FilmSeanceDTO> listToday = null;
             try {
                 listToday = (ArrayList<FilmSeanceDTO>) new DbTools().getFilms(DateTools.getDaysAfter(i));

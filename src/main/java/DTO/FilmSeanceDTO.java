@@ -26,8 +26,9 @@ public class FilmSeanceDTO {
         StringWriter stringWriter = new StringWriter();
         stringWriter.write("<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"" + film.getAddressPhoto() + "\" alt=\"\" width=\"300\" height=\"200\" />");
         stringWriter.write("<h1 style=\"text-align: center;\">" + film.getNom() + "(" + film.getAnnee() + ")" + "</h1>");
-        stringWriter.write("<p style=\"text-align: center;\">Horaires : " + seance.getHeure() + "&nbsp;</p>");
         stringWriter.write("<p style=\"text-align: center;\">Genre : " + film.getGenre() + "&nbsp;</p>");
+        stringWriter.write("<p style=\"text-align: center;\">Horaires : " + (int) seance.getHeure() + "h&nbsp;</p>");
+        stringWriter.write("<p style=\"text-align: center;\">Salle : " + seance.getIdSalle() + "&nbsp;</p>");
         stringWriter.write("<p style=\"text-align: center;\">Duration : " + film.getDuree() + " minutes</p>");
         stringWriter.write("<p style=\"text-align: center;\">Price : $" + film.getPrix() + "</p>");
         return stringWriter.toString();
